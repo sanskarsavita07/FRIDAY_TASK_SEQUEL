@@ -2,7 +2,7 @@
 
 import openpyxl
 from config.config import (
-    FILE_PATH, MIN_COL, MAIN_MAX_COL, SUMMARY_MAX_COL
+    FILE_PATH
 )
 import warnings
 
@@ -31,8 +31,8 @@ def extractMainData(sheet):
         for row in sheet.iter_rows(
                 min_row=6,
                 max_row=101,
-                min_col=MIN_COL,
-                max_col=MAIN_MAX_COL,
+                min_col=1,
+                max_col=8,
                 values_only=True):
             if any(row):
                 mainData.append(row)
@@ -51,8 +51,8 @@ def extractSummaryData(sheet):
         for row in sheet.iter_rows(
                 min_row=103,
                 max_row=106,
-                min_col=MIN_COL,
-                max_col=SUMMARY_MAX_COL,
+                min_col=1,
+                max_col=7,
                 values_only=True):
             if any(row):
                 summaryData.append(row)
